@@ -122,6 +122,9 @@
     <Compile Include="Candle.xaml.cs">
       <DependentUpon>Candle.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Firework.xaml.cs">
+      <DependentUpon>Firework.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
@@ -148,6 +151,10 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="Candle.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Firework.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

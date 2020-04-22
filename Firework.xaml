@@ -1,0 +1,85 @@
+﻿<UserControl
+    x:Class="Cake.UWP.Firework"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"    
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="20"
+    d:DesignWidth="20"
+    
+    Opacity="0">
+
+    <UserControl.Resources>
+        <Duration x:Key="ParticleDuration">0:0:0.1</Duration>
+        <Storyboard x:Name="ExplosionStoryboard">
+            
+            <DoubleAnimation Storyboard.TargetName="Rectangle1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="-10" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle1" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="-10" Duration="{StaticResource ParticleDuration}"/>
+
+            <DoubleAnimation Storyboard.TargetName="Rectangle2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="0" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle2" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="-10" Duration="{StaticResource ParticleDuration}"/>
+                                                                                                                                                               
+            <DoubleAnimation Storyboard.TargetName="Rectangle3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="10" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle3" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="-10" Duration="{StaticResource ParticleDuration}"/>
+                                                                                                                                                               
+            <DoubleAnimation Storyboard.TargetName="Rectangle4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="10" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle4" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="0" Duration="{StaticResource ParticleDuration}"/>
+                                                                                                                                                               
+            <DoubleAnimation Storyboard.TargetName="Rectangle5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="10" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle5" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="10" Duration="{StaticResource ParticleDuration}"/>
+                                                                                                                                                               
+            <DoubleAnimation Storyboard.TargetName="Rectangle6" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="0" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle6" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="10" Duration="{StaticResource ParticleDuration}"/>
+                                                                                                                                                               
+            <DoubleAnimation Storyboard.TargetName="Rectangle7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="-10" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle7" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="10" Duration="{StaticResource ParticleDuration}"/>
+                                                                                                                                                               
+            <DoubleAnimation Storyboard.TargetName="Rectangle8" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.X)" From="0" To="-10" Duration="{StaticResource ParticleDuration}"/>
+            <DoubleAnimation Storyboard.TargetName="Rectangle8" Storyboard.TargetProperty="(UIElement.RenderTransform).(TranslateTransform.Y)" From="0" To="0" Duration="{StaticResource ParticleDuration}"/>
+        </Storyboard>
+    </UserControl.Resources>
+
+    <Grid>
+        <Rectangle x:Name="Rectangle1" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Rectangle2" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Rectangle3" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Rectangle4" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Rectangle5" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Rectangle6" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Rectangle7" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+        <Rectangle x:Name="Rectangle8" Width="1" Height="1" StrokeThickness="0" Fill="White">
+            <Rectangle.RenderTransform>
+                <TranslateTransform/>
+            </Rectangle.RenderTransform>
+        </Rectangle>
+    </Grid>
+</UserControl>

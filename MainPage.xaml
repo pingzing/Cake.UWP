@@ -10,7 +10,7 @@
 
     <Page.TopAppBar>
         <CommandBar DefaultLabelPosition="Right">
-            <AppBarButton x:Name="SettingsButton" Label="Settings" LabelPosition="Default" Icon="Setting" AllowFocusOnInteraction="True">
+            <AppBarButton x:Name="SettingsButton" Label="Decoration" LabelPosition="Default" Icon="Setting" AllowFocusOnInteraction="True">
                 <AppBarButton.Flyout>
                     <Flyout x:Name="SettingsFlyout" Opened="Flyout_Opened">
                         <StackPanel>
@@ -46,5 +46,6 @@
                        Text="&lt;text&gt;"/>
             <Canvas x:Name="CandleCanvas" VerticalAlignment="Top" Margin="15, -75, 0, 0"/>
         </Grid>
+        <Canvas x:Name="FireworkCanvas"/>
     </Grid>
 </Page>

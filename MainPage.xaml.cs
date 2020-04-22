@@ -1,19 +1,9 @@
 ﻿using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Runtime.InteropServices.WindowsRuntime;
-using Windows.Foundation;
-using Windows.Foundation.Collections;
 using Windows.UI;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
-using Windows.UI.Xaml.Controls.Primitives;
-using Windows.UI.Xaml.Data;
-using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
-using Windows.UI.Xaml.Navigation;
 
 namespace Cake.UWP
 {
@@ -34,6 +24,8 @@ namespace Cake.UWP
         private DispatcherTimer _candleFlickerTimer = new DispatcherTimer();
         private DispatcherTimer _fireworksTimer = new DispatcherTimer();
 
+        private Firework _firework = new Firework();
+
         public MainPage()
         {
             _candleColors[0] = _redBrush;
@@ -45,10 +37,14 @@ namespace Cake.UWP
             _textFlashingTimer.Interval = TimeSpan.FromSeconds(1);
             _textFlashingTimer.Tick += TextFlashingTimer_Tick;
 
-            _candleFlickerTimer.Interval = TimeSpan.FromMilliseconds(16);
+            _candleFlickerTimer.Interval = TimeSpan.FromMilliseconds(32);
             _candleFlickerTimer.Tick += CandleFlickerTimer_Tick;
 
+            _fireworksTimer.Interval = TimeSpan.FromMilliseconds(200);
+            _fireworksTimer.Tick += FireworksTimer_Tick;
+
             CandleCanvas.Children.Add(new Candle());
+            FireworkCanvas.Children.Add(_firework);
 
             UpdateStateFromSettings();
         }
@@ -113,12 +109,12 @@ namespace Cake.UWP
 
         private void UpdateStateFromSettings()
         {
-            UpdateNumCandles(_numCandles);
+            UpdateNumCandles(_numCandles, _candlesBurning, _flashingAndFireworks);
             UpdateTextFlashing(_flashingAndFireworks);
             UpdateFireworks(_flashingAndFireworks);
         }
 
-        private void UpdateNumCandles(uint numCandles)
+        private void UpdateNumCandles(uint numCandles, bool candlesBurning, bool flashingAndFireworks)
         {
             CandleCanvas.Children.Clear();
             if (numCandles == 0)
@@ -128,7 +124,6 @@ namespace Cake.UWP
 
             _candleFlickerTimer.Stop();
             _fireworksTimer.Stop();
-
 
             uint spacePerCandle = 540u / numCandles;
 
@@ -148,8 +143,8 @@ namespace Cake.UWP
                 CandleCanvas.Children.Add(candle);
             }
 
-            if (_candlesBurning) { _candleFlickerTimer.Start(); }
-            if (_flashingAndFireworks) { _fireworksTimer.Start(); }
+            if (candlesBurning) { _candleFlickerTimer.Start(); }
+            if (flashingAndFireworks) { _fireworksTimer.Start(); }
         }
 
         private void UpdateTextFlashing(bool flashingAndFireworks)
@@ -172,7 +167,24 @@ namespace Cake.UWP
 
         private void UpdateFireworks(bool flashingAndFireworks)
         {
-            //throw new NotImplementedException();
+            if (flashingAndFireworks && !_fireworksTimer.IsEnabled)
+            {
+                _fireworksTimer.Start();
+            }
+            if (!flashingAndFireworks && _fireworksTimer.IsEnabled)
+            {
+                _fireworksTimer.Stop();
+            }
+        }
+
+        Random rand = new Random();
+        private async void FireworksTimer_Tick(object sender, object e)
+        {
+            int x = rand.Next(10, 550);
+            int y = rand.Next(10, 100);
+            Canvas.SetLeft(_firework, x);
+            Canvas.SetTop(_firework, y);
+            _firework.Explode();
         }
     }
 }
