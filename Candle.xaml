@@ -1,0 +1,36 @@
+﻿<UserControl
+    x:Class="Cake.UWP.Candle"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cake.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="100"
+    d:DesignWidth="16">
+
+    <StackPanel HorizontalAlignment="Center" Height="100" Width="16">
+        <Grid x:Name="Flame" Width="16" Height="15">
+            <Path x:Name="YellowLeft" StrokeThickness="0" Fill="Yellow"
+                  Data="M0,0 v7 a7,7 200 1 0 14,0"
+                  Opacity="0"/>
+            <Path x:Name="YellowCenter" StrokeThickness="0" Fill="Yellow"
+                  Data="M8,0  l-5,10  a5,5 200 1 0 10,0"
+                  Opacity="0"/>
+            <Path x:Name="YellowRight" StrokeThickness="0" Fill="Yellow"
+                  Data="M16,0 v7 a7,7 200 1 1 -14,0"
+                  Opacity="0"/>
+            <Path x:Name="RedLeft" StrokeThickness="0" Fill="Red"
+                  Data="M2,4 v3 a3,3 200 1 0 9,1"
+                  Opacity="0"/>
+            <Path x:Name="RedCenter" StrokeThickness="0" Fill="Red"
+                  Data="M8,3 l-3,8 a2,2 200 1 0 6,0"
+                  Opacity="0"/>
+            <Path x:Name="RedRight" StrokeThickness="0" Fill="Red"
+                  Data="M14,4 v3 a3,3 200 1 1 -9,1"
+                  Opacity="0"/>
+        </Grid>
+        <Rectangle x:Name="Wick" Width="4" Height="15" StrokeThickness="0" Stroke="Black" Fill="white"/>
+        <Rectangle x:Name="Candlestick" Width="10" Height="70" Stroke="Black" StrokeThickness="1" Fill="Red"/>
+    </StackPanel>
+</UserControl>

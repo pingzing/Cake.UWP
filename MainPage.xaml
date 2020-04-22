@@ -1,0 +1,50 @@
+﻿<Page
+    x:Class="Cake.UWP.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Cake.UWP"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}" d:DesignWidth="640" d:DesignHeight="402.222">
+
+    <Page.TopAppBar>
+        <CommandBar DefaultLabelPosition="Right">
+            <AppBarButton x:Name="SettingsButton" Label="Settings" LabelPosition="Default" Icon="Setting" AllowFocusOnInteraction="True">
+                <AppBarButton.Flyout>
+                    <Flyout x:Name="SettingsFlyout" Opened="Flyout_Opened">
+                        <StackPanel>
+                            <TextBox x:Name="CakeTextBox" Header="Cake Text" Text="&lt;text&gt;"/>
+                            <TextBox x:Name="NumberOfCandlesBox" Header="Number of Candles" Text="1"/>
+                            <CheckBox x:Name="FireworksCheckbox" Content="Flashing &amp; Fireworks"/>
+                            <Button Content="Apply" HorizontalAlignment="Right" Click="ApplySettingsButton_Click"/>
+                        </StackPanel>
+                    </Flyout>
+                </AppBarButton.Flyout>
+            </AppBarButton>
+
+            <AppBarToggleButton x:Name="ToggleBurningButton" Label="Candles Burning" Icon="Accept" Checked="ToggleBurningButton_Checked" Unchecked="ToggleBurningButton_Unchecked"/>
+        </CommandBar>
+    </Page.TopAppBar>
+
+    <Page.Resources>
+        <SolidColorBrush x:Key="IcingColor" Color="#FFC0C0"/>
+    </Page.Resources>
+
+    <Grid>
+        <Grid Width="560" Height="205" Margin="0 80 0 0">
+            <Path x:Name="CakeBottom" HorizontalAlignment="Center"
+                  StrokeThickness="1" Stroke="Black" Fill="{StaticResource IcingColor}"
+                  Data="M 0,25 
+                        v 150 
+                        a 230,25 0 0 0 560,0 
+                        v -150"/>
+            <Ellipse x:Name="CakeTopEllipse" Width="560" Height="50" VerticalAlignment="Top" 
+                     Stroke="Black" StrokeThickness="1" Fill="{StaticResource IcingColor}"/>
+            <TextBlock x:Name="CakeText" Margin="20, 35, 0, 0" VerticalAlignment="Center" 
+                       FontSize="65" FontFamily="Script MT" TextWrapping="Wrap" TextAlignment="Center" Foreground="Black"
+                       Text="&lt;text&gt;"/>
+            <Canvas x:Name="CandleCanvas" VerticalAlignment="Top" Margin="15, -75, 0, 0"/>
+        </Grid>
+    </Grid>
+</Page>
